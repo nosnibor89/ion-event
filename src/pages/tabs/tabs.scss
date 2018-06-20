@@ -1,3 +1,18 @@
 page-tabs {
+        .tab-button{
+            &:nth-child(3){
+                border-radius: 50%;
+                background: color($colors, primary, base);
+                display: block;
+                height: auto;
+                width: auto;
+                top: -5px;
+                transform: scale(1,1.4);
 
+                .tab-button-icon{
+                    color: color($colors, light, base) !important;
+                }
+            }
+            
+        }
 }
