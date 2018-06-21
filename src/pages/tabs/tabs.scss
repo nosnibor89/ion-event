@@ -6,11 +6,12 @@ page-tabs {
                 display: block;
                 height: auto;
                 width: auto;
-                top: -5px;
-                transform: scale(1,1.4);
+                top: -6px;
+                transform: scale(1,1.5);
 
                 .tab-button-icon{
-                    color: color($colors, light, base) !important;
+                    color: white !important;
+                    font-size: 32px;
                 }
             }
             
