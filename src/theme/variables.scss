@@ -33,6 +33,7 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 $text-color: #000;
+$primarygradient: linear-gradient(to bottom, #5f72d9 5%, #5f72d9 8%, #5f6dca 18%, #505eba 100%);
 
 $colors: (
   primary:    #5764BC,

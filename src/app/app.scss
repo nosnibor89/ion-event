@@ -12,10 +12,8 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
 // Custom Variables
 $app-border: .5px solid color($colors, bordersgray, base);
-
 ion-app {
     &.md {
         // font-family: 'SourceSansPro';
@@ -29,7 +27,11 @@ ion-app {
             color: #343434;
         }
     }
-    span, strong {
+    span,
+    strong {
         color: #686868;
+    }
+    .card {
+        width: 100%;
     }
 }
