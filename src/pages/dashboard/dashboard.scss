@@ -1,3 +1,24 @@
 page-dashboard {
-
+    strong {
+        display: block;
+        font-size: 3rem;
+        font-weight: 300;
+    }
+    .summary {
+        .col {
+            padding: 2px !important;
+        }
+    }
+    .card {
+        width: 100%;
+        .col {
+            border-top: $app-border;
+            &:first-child {
+                border-right: $app-border;
+            }
+        }
+    }
+    .task-progress {
+        margin-top: 2rem;
+    }
 }
