@@ -13,18 +13,20 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 // Custom Variables
-$app-border: .5px solid color($colors, bordersgray, base);
+$app-border: .5px solid color($colors, gray, base);
+$app-border-dark: .5px solid #B6B5B8;
+
 ion-app {
     &.md {
         // font-family: 'SourceSansPro';
         .content-md {
-            color: #343434;
+            color: color($colors, graydark);
         }
     }
     &.ios {
         // font-family: 'SourceSansPro';
         .content-ios {
-            color: #343434;
+            color:color($colors, graydark);
         }
     }
     span,

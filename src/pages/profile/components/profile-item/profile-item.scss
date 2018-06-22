@@ -1,0 +1,20 @@
+profile-item {
+    border-left: 2px solid #B6F273;
+    background-color: color($colors, gray);
+
+    display: block;
+    margin: 1rem 0;
+    overflow: hidden;
+    padding: $content-padding calc(#{$content-padding}/2);
+    height: 140px;
+    overflow-wrap: break-word;
+
+    h3,h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+}

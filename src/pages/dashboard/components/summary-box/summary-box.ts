@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Generated class for the SummaryBoxComponent component.
@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
  */
 @Component({
   selector: 'summary-box',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   <div>
       <ion-icon [name]="iconName"></ion-icon>

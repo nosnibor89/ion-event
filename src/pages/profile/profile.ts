@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';
 
+
 /**
  * Generated class for the ProfilePage page.
  *
@@ -17,7 +18,8 @@ import Pages from '../pages';
   templateUrl: 'profile.html',
 })
 export class ProfilePage implements MainPage {
- 
+
+  selectedTab  = 'notes';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -28,6 +30,10 @@ export class ProfilePage implements MainPage {
 
   goSettings(): void {
     this.navCtrl.setRoot(Pages.PROFILE_PAGE);
+  }
+
+  toogle(tab: string) : void {
+    this.selectedTab = tab;
   }
 
 }

@@ -19,20 +19,37 @@
 
 
 <ion-content>
-
   <!-- Avatar -->
-  <ion-card no-margin padding-vertical> 
-    <img src="assets/imgs/logo.png" />
+  <ion-card no-margin padding-vertical>
+    <img src="assets/imgs/profile.png" />
     <ion-card-content margin-top no-padding>
       <ion-card-title>
-        Isamar Aranguren
+        Modus Create
       </ion-card-title>
     </ion-card-content>
   </ion-card>
 
 
-  <!-- Segment -->
+  <!-- Tabs -->
+  <div ion-row text-center class="profile-tab-buttons">
+    <div ion-col no-padding>
+      <button type="button" ion-button clear [ngClass]="{ 'active': selectedTab === 'todos' }" (click)="toogle('todos')">
+        ToDos
+      </button>
+    </div>
+    <div ion-col no-padding>
+      <button type="button" ion-button clear [ngClass]="{ 'active': selectedTab === 'notes' }" (click)="toogle('notes')">
+        Notes
+      </button>
+    </div>
+  </div>
 
-
+  <!-- List -->
+  <ion-scroll scrollY="true" style="width: 100%; height: 300px;">
+    <ion-list padding no-lines>
+      <profile-item></profile-item>
+      <profile-item></profile-item>
+    </ion-list>
+  </ion-scroll>
 
 </ion-content>

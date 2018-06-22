@@ -42,15 +42,23 @@ $colors: (
   light:      #BBBCBE,
   dark:       #222,
 
+  gray: #F2F2F2,
+  graydark: #343434,
   secondarydark: #585656,
-  bordersgray: #F2F2F2,
   blue: #3C81C0,
   green: #2E848B,
 );
 
 // Override Ionic variables
+
+
+// Fonts
+// --------------------------------------------------
 $toolbar-ios-title-font-size: 1.5rem;
 $toolbar-ios-title-font-weight: 400;
+$toolbar-md-title-font-size: 1.5rem;
+$toolbar-md-title-font-weight: 400;
+
 
 // App iOS Variables
 // --------------------------------------------------

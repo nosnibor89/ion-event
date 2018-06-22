@@ -9,8 +9,13 @@ page-tabs {
                 top: -6px;
                 transform: scale(1,1.5);
 
+                &[aria-selected=true] .tab-button-icon, .tab-button-icon{
+                    color: white;
+                    font-size: 32px;
+                }
+
                 .tab-button-icon{
-                    color: white !important;
+                    color: white ;
                     font-size: 32px;
                 }
             }
