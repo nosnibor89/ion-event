@@ -1,5 +1,5 @@
-import { Component, ViewChild, TemplateRef, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content, Scroll } from 'ionic-angular';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';

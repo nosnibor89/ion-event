@@ -18,13 +18,11 @@ $app-border-dark: .5px solid #B6B5B8;
 
 ion-app {
     &.md {
-        // font-family: 'SourceSansPro';
         .content-md {
             color: color($colors, graydark);
         }
     }
     &.ios {
-        // font-family: 'SourceSansPro';
         .content-ios {
             color:color($colors, graydark);
         }

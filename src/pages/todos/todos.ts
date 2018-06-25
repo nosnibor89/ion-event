@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';
+import { Mocker } from '../../shared/mock/data';
 
 /**
  * Generated class for the TodosPage page.
@@ -18,6 +19,10 @@ import Pages from '../pages';
 export class TodosPage implements MainPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    const t = Mocker.mockTodos();
+
+    console.log(t)
   }
 
   ionViewDidLoad() {
