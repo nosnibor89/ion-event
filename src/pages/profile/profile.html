@@ -31,7 +31,7 @@
 
 
   <!-- Tabs -->
-  <div ion-row text-center class="profile-tab-buttons">
+  <div ion-row text-center class="profile-tab-buttons" #tabs>
     <div ion-col no-padding>
       <button type="button" ion-button clear [ngClass]="{ 'active': selectedTab === 'todos' }" (click)="toogle('todos')">
         ToDos
@@ -45,7 +45,7 @@
   </div>
 
   <!-- List -->
-  <ion-scroll scrollY="true" style="width: 100%; height: 300px;">
+  <ion-scroll scrollY="true" [ngStyle]="{ 'height.px': scrollHeight }">
     <ion-list padding no-lines>
       <profile-item></profile-item>
       <profile-item></profile-item>

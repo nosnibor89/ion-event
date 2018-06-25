@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild, TemplateRef, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content, Scroll } from 'ionic-angular';
 
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';
@@ -19,13 +19,27 @@ import Pages from '../pages';
 })
 export class ProfilePage implements MainPage {
 
+  @ViewChild(Content) content: Content;
+  @ViewChild('tabs') tabsElement: ElementRef;
+
   selectedTab  = 'notes';
+  scrollHeight: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log('ionViewDidLoad ProfilePage');
+
+    this.setScrollHeight();
+  }
+
+  /**
+   * Calculates and sets height dimesion for scroll section
+   */
+  setScrollHeight() : void {
+    const height = this.content.contentHeight;
+    this.scrollHeight = height - this.tabsElement.nativeElement.offsetTop;
   }
 
   goSettings(): void {
