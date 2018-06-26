@@ -14,7 +14,6 @@
 
 <ion-content padding-horizontal>
   <ion-list>
-    <list-item></list-item>
-    <list-item></list-item>
+    <list-item *ngFor="let todo of (todos$ | async)?.todos" [item]="todo"></list-item>
   </ion-list>
 </ion-content>

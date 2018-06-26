@@ -33,12 +33,12 @@
   <!-- Tabs -->
   <div ion-row text-center class="profile-tab-buttons" #tabs>
     <div ion-col no-padding>
-      <button type="button" ion-button clear [ngClass]="{ 'active': selectedTab === 'todos' }" (click)="toogle('todos')">
+      <button type="button" ion-button clear [ngClass]="{ 'active': selectedTab === profileFilters.todo }" (click)="toogle(profileFilters.todo)">
         ToDos
       </button>
     </div>
     <div ion-col no-padding>
-      <button type="button" ion-button clear [ngClass]="{ 'active': selectedTab === 'notes' }" (click)="toogle('notes')">
+      <button type="button" ion-button clear [ngClass]="{ 'active': selectedTab === profileFilters.note }" (click)="toogle(profileFilters.note)">
         Notes
       </button>
     </div>
@@ -47,8 +47,7 @@
   <!-- List -->
   <ion-scroll scrollY="true" [ngStyle]="{ 'height.px': scrollHeight }">
     <ion-list padding no-lines>
-      <list-item></list-item>
-      <list-item></list-item>
+      <list-item *ngFor="let item of (items$ | async)" [item]="item"></list-item>
     </ion-list>
   </ion-scroll>
 

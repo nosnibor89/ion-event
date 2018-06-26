@@ -1,3 +1,6 @@
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/observable/of';
+
 const item = {
     title: 'Distributed bandwidth-monitored loverage',
     note: `  Ioncity developed an app theme is as a tasks, events and notifications manager. Users can keep track of events on a beautifully
@@ -13,7 +16,7 @@ const item = {
 }
 
 export const Mocker = {
-    mockTodos: () => {
+    mockTodos: (): Observable<any> => {
         const qty = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
         const items = [];
 
@@ -25,10 +28,9 @@ export const Mocker = {
             items.push(current)
         }
 
-        return items;
-
+        return Observable.of(items);
     },
-    mockNotes: () => {
+    mockNotes: (): Observable<any> => {
         const qty = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
         const items = [];
 
@@ -39,7 +41,7 @@ export const Mocker = {
             items.push(current)
         }
 
-        return items;
+        return Observable.of(items);
 
     }
 }

@@ -14,7 +14,6 @@
 
 <ion-content padding-horizontal>
   <ion-list>
-    <list-item></list-item>
-    <list-item></list-item>
+    <list-item *ngFor="let note of (notes$ | async)?.notes" [item]="note"></list-item>
   </ion-list>
 </ion-content>

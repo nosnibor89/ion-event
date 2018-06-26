@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';
-import { Mocker } from '../../shared/mock/data';
+import { TodoState } from '../../shared/store/todo/todo.state';
+
 
 /**
  * Generated class for the TodosPage page.
@@ -17,12 +21,9 @@ import { Mocker } from '../../shared/mock/data';
   templateUrl: 'todos.html',
 })
 export class TodosPage implements MainPage {
+  @Select(TodoState) todos$: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
-    const t = Mocker.mockTodos();
-
-    console.log(t)
   }
 
   ionViewDidLoad() {

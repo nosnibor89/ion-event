@@ -3,8 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+
 
 import { MyApp } from './app.component';
+import { TodoState } from '../shared/store/todo/todo.state';
+import { ApiService } from '../services/api.service';
+import { NoteState } from '../shared/store/note/note.state';
 
 @NgModule({
   declarations: [
@@ -13,6 +19,11 @@ import { MyApp } from './app.component';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    NgxsModule.forRoot([
+      TodoState,
+      NoteState,
+    ]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -21,7 +32,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiService,
   ]
 })
 export class AppModule {}

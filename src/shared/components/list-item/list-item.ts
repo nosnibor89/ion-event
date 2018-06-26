@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+
+import { TodoItem } from '../../models/todo-item';
 
 /**
  * Generated class for the ListItemComponent component.
@@ -13,11 +15,5 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ListItemComponent {
 
-  text: string;
-
-  constructor() {
-    console.log('Hello ListItemComponent Component');
-    this.text = 'Hello World';
-  }
-
+  @Input() item: TodoItem;
 }

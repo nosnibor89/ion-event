@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs';
+import { Select } from '@ngxs/store';
+
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';
+import { NoteState } from '../../shared/store/note/note.state';
 
 /**
  * Generated class for the NotesPage page.
@@ -16,7 +20,7 @@ import Pages from '../pages';
   templateUrl: 'notes.html',
 })
 export class NotesPage implements MainPage {
-  
+  @Select(NoteState) notes$: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

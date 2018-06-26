@@ -1,8 +1,13 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, Content } from 'ionic-angular';
+import { Observable } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
 
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';
+import { ProfileState, profileFilters } from '../../shared/store/profile/profile.state';
+import { ApplyFilter } from '../../shared/store/profile/profile.actions';
+
 
 
 /**
@@ -21,11 +26,13 @@ export class ProfilePage implements MainPage {
 
   @ViewChild(Content) content: Content;
   @ViewChild('tabs') tabsElement: ElementRef;
+  @Select(ProfileState.items) items$: Observable<any>;
 
-  selectedTab  = 'notes';
+  selectedTab  = profileFilters.note;
   scrollHeight: number;
+  profileFilters = profileFilters
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private store: Store) {
   }
 
   ionViewDidEnter() {
@@ -48,6 +55,7 @@ export class ProfilePage implements MainPage {
 
   toogle(tab: string) : void {
     this.selectedTab = tab;
+    this.store.dispatch(new ApplyFilter(tab));
   }
 
 }
