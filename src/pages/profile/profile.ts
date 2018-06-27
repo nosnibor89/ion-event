@@ -3,11 +3,9 @@ import { IonicPage, NavController, Content } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 
-import { MainPage } from '../../shared/main-page.interface';
-import Pages from '../pages';
 import { ProfileState, profileFilters } from '../../shared/store/profile/profile.state';
 import { ApplyFilter } from '../../shared/store/profile/profile.actions';
-
+import { MainPage } from '../../shared/main-page';
 
 
 /**
@@ -22,7 +20,7 @@ import { ApplyFilter } from '../../shared/store/profile/profile.actions';
   selector: 'page-profile',
   templateUrl: 'profile.html',
 })
-export class ProfilePage implements MainPage {
+export class ProfilePage extends MainPage {
 
   @ViewChild(Content) content: Content;
   @ViewChild('tabs') tabsElement: ElementRef;
@@ -32,12 +30,11 @@ export class ProfilePage implements MainPage {
   scrollHeight: number;
   profileFilters = profileFilters
 
-  constructor(private navCtrl: NavController, private store: Store) {
+  constructor(public navCtrl: NavController, private store: Store) {
+    super(navCtrl);
   }
 
   ionViewDidEnter() {
-    console.log('ionViewDidLoad ProfilePage');
-
     this.setScrollHeight();
   }
 
@@ -49,10 +46,11 @@ export class ProfilePage implements MainPage {
     this.scrollHeight = height - this.tabsElement.nativeElement.offsetTop;
   }
 
-  goSettings(): void {
-    this.navCtrl.setRoot(Pages.PROFILE_PAGE);
-  }
-
+  /**
+   * Toogle the selected tabs and dispatch ApplyFilter so the item 
+   * can be updated in the state
+   * @param tab string tab/filter name
+   */
   toogle(tab: string) : void {
     this.selectedTab = tab;
     this.store.dispatch(new ApplyFilter(tab));

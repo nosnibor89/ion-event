@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MainPage } from '../../shared/main-page';
 
 /**
- * Generated class for the CalendarPage page.
+ * Generated class for the DetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,12 +10,17 @@ import { MainPage } from '../../shared/main-page';
 
 @IonicPage()
 @Component({
-  selector: 'page-calendar',
-  templateUrl: 'calendar.html',
+  selector: 'page-detail',
+  templateUrl: 'detail.html',
 })
-export class CalendarPage extends MainPage {
+export class DetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    super(navCtrl);
+    console.log(navParams)
   }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad DetailPage');
+  }
+
 }

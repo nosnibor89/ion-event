@@ -1,28 +1,17 @@
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-
-const item = {
-    title: 'Distributed bandwidth-monitored loverage',
-    note: `  Ioncity developed an app theme is as a tasks, events and notifications manager. Users can keep track of events on a beautifully
-    designed in-app monthly calendar, add and manage events from the
-  
-    Ioncity developed an app theme is as a tasks, events and notifications manager. Users can keep track of events on a beautifully
-    designed in-app monthly calendar, add and manage events from the
-    Ioncity developed an app theme is as a tasks, events and notifications manager. Users can keep track of events on a beautifully
-    designed in-app monthly calendar, add and manage events from the
-  
-    Ioncity developed an app theme is as a tasks, events and notifications manager. Users can keep track of events on a beautifully
-    designed in-app monthly calendar, add and manage events from the`,
-}
+import * as faker from 'faker';
 
 export const Mocker = {
     mockTodos: (): Observable<any> => {
-        const qty = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+        const qty = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
         const items = [];
 
         for (let i = 0; i < qty; i++) {
             const current = {
-                ...item,
+                title: faker.lorem.slug(),
+                note: faker.lorem.paragraph(),
+                id: i,
                 done: i % 2 === 0 ? true : false,
             }
             items.push(current)
@@ -36,7 +25,9 @@ export const Mocker = {
 
         for (let i = 0; i < qty; i++) {
             const current = {
-                ...item,
+                title: faker.lorem.slug(),
+                note: faker.lorem.paragraph(),
+                id: i,
             }
             items.push(current)
         }

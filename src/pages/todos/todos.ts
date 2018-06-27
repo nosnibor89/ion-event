@@ -3,9 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
-import { MainPage } from '../../shared/main-page.interface';
-import Pages from '../pages';
 import { TodoState } from '../../shared/store/todo/todo.state';
+import { MainPage } from '../../shared/main-page';
 
 
 /**
@@ -20,18 +19,11 @@ import { TodoState } from '../../shared/store/todo/todo.state';
   selector: 'page-todos',
   templateUrl: 'todos.html',
 })
-export class TodosPage implements MainPage {
+export class TodosPage extends MainPage {
   @Select(TodoState) todos$: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TodosPage');
-  }
-
-  goSettings(): void {
-    this.navCtrl.setRoot(Pages.PROFILE_PAGE);
+    super(navCtrl);
   }
 
 }

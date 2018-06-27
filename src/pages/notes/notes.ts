@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { Select } from '@ngxs/store';
 
-import { MainPage } from '../../shared/main-page.interface';
-import Pages from '../pages';
 import { NoteState } from '../../shared/store/note/note.state';
+import { MainPage } from '../../shared/main-page';
 
 /**
  * Generated class for the NotesPage page.
@@ -19,19 +18,10 @@ import { NoteState } from '../../shared/store/note/note.state';
   selector: 'page-notes',
   templateUrl: 'notes.html',
 })
-export class NotesPage implements MainPage {
+export class NotesPage extends MainPage {
   @Select(NoteState) notes$: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
+    super(navCtrl);
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NotesPage');
-  }
-
-  goSettings(): void {
-    this.navCtrl.setRoot(Pages.PROFILE_PAGE)
-  }
-
-
 }
