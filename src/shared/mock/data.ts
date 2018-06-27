@@ -12,7 +12,8 @@ export const Mocker = {
                 title: faker.lorem.slug(),
                 note: faker.lorem.paragraph(),
                 id: i,
-                done: i % 2 === 0 ? true : false,
+                done: faker.random.boolean(),
+                createdAt: faker.date.past(),
             }
             items.push(current)
         }
@@ -28,6 +29,7 @@ export const Mocker = {
                 title: faker.lorem.slug(),
                 note: faker.lorem.paragraph(),
                 id: i,
+                createdAt: faker.date.past(),
             }
             items.push(current)
         }
