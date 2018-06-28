@@ -2,7 +2,7 @@
 
   <ion-navbar>
     <ion-buttons left>
-      <button ion-button icon-only color="secondarydark" (click)="goSettings()">
+      <button ion-button icon-only color="secondarydark" (click)="goProfile()">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
@@ -14,6 +14,6 @@
 
 <ion-content padding-horizontal>
   <ion-list>
-    <list-item *ngFor="let todo of (todos$ | async)?.todos" [item]="todo"></list-item>
+    <list-item *ngFor="let todo of (todos$ | async)?.todos; trackBy: trackByItemId" [item]="todo"></list-item>
   </ion-list>
 </ion-content>

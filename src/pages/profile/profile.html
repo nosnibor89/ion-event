@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-buttons left>
-      <button ion-button icon-only color="secondarydark" (click)="goSettings()">
+      <button ion-button icon-only color="secondarydark" (click)="goProfile()">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
@@ -47,7 +47,7 @@
   <!-- List -->
   <ion-scroll scrollY="true" [ngStyle]="{ 'height.px': scrollHeight }">
     <ion-list padding no-lines>
-      <list-item *ngFor="let item of (items$ | async)" [item]="item"></list-item>
+      <list-item *ngFor="let item of (items$ | async); trackBy: trackByItemId" [item]="item"></list-item>
     </ion-list>
   </ion-scroll>
 

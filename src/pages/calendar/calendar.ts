@@ -24,7 +24,7 @@ export class CalendarPage implements MainPage {
     console.log('ionViewDidLoad CalendarPage');
   }
 
-  goSettings(): void {
+  goProfile(): void {
     this.navCtrl.setRoot(Pages.PROFILE_PAGE);
   }
 

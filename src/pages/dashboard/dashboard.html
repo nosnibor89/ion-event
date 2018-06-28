@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-buttons left>
-      <button ion-button icon-only color="secondarydark" (click)="goSettings()">
+      <button ion-button icon-only color="secondarydark" (click)="goProfile()">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
@@ -72,9 +72,9 @@
           <ion-card-content >
               <div style="display: block">
                   <canvas baseChart
-                              [data]="doughnutChartData"
-                              [labels]="doughnutChartLabels"
-                              [chartType]="doughnutChartType"
+                              [data]="itemsByLapse"
+                              [labels]="lapses"
+                              [chartType]="chartType"
                               (chartHover)="chartHovered($event)"
                               (chartClick)="chartClicked($event)"></canvas>
                 </div>
