@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-// import { Chart } from 'chart.js';
-
+import { Observable } from 'rxjs';
+import { Select } from '@ngxs/store';
 
 import { MainPage } from '../../shared/main-page.interface';
 import Pages from '../pages';
+import { DashboardState } from '../../shared/store/dashboard/dashboard.state';
+
 
 
 /**
@@ -25,6 +27,7 @@ export class DashboardPage implements MainPage {
   public lapses: string[] = ['Month', 'Week', 'Today'];
   public itemsByLapse: number[] = [350, 450, 100];
   public chartType: string = 'doughnut';
+  @Select(DashboardState.summary) summary$: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

@@ -5,7 +5,7 @@ import { ApiService } from "../../../services/api.service";
 import { fetchNotes, AddNote } from "./note.actions";
 import { TodoItem } from "../../models/todo-item";
 
-interface NoteStateModel {
+export interface NoteStateModel {
     notes: TodoItem[],
 }
 
