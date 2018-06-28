@@ -30,8 +30,12 @@ export class TodosPage implements MainPage {
     console.log('ionViewDidLoad TodosPage');
   }
 
-  goSettings(): void {
+  goProfile(): void {
     this.navCtrl.setRoot(Pages.PROFILE_PAGE);
+  }
+
+  trackByItemId(index, item) {
+    return item ? item.id : undefined;
   }
 
 }

@@ -29,8 +29,12 @@ export class NotesPage implements MainPage {
     console.log('ionViewDidLoad NotesPage');
   }
 
-  goSettings(): void {
+  goProfile(): void {
     this.navCtrl.setRoot(Pages.PROFILE_PAGE)
+  }
+
+  trackByItemId(index, item) {
+    return item ? item.id : undefined;
   }
 
 

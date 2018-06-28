@@ -49,13 +49,17 @@ export class ProfilePage implements MainPage {
     this.scrollHeight = height - this.tabsElement.nativeElement.offsetTop;
   }
 
-  goSettings(): void {
+  goProfile(): void {
     this.navCtrl.setRoot(Pages.PROFILE_PAGE);
   }
 
   toogle(tab: string) : void {
     this.selectedTab = tab;
     this.store.dispatch(new ApplyFilter(tab));
+  }
+
+  trackByItemId(index, item) {
+    return item ? item.id : undefined;
   }
 
 }

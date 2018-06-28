@@ -24,9 +24,9 @@ import { DashboardState } from '../../shared/store/dashboard/dashboard.state';
 export class DashboardPage implements MainPage {
 
   // Doughnut
-  public doughnutChartLabels: string[] = ['Month', 'Week', 'Today'];
-  public doughnutChartData: number[] = [350, 450, 100];
-  public doughnutChartType: string = 'doughnut';
+  public lapses: string[] = ['Month', 'Week', 'Today'];
+  public itemsByLapse: number[] = [350, 450, 100];
+  public chartType: string = 'doughnut';
   @Select(DashboardState.summary) summary$: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -42,7 +42,7 @@ export class DashboardPage implements MainPage {
     console.log(e);
   }
 
-  goSettings(): void {
+  goProfile(): void {
     this.navCtrl.setRoot(Pages.PROFILE_PAGE);
   }
 
