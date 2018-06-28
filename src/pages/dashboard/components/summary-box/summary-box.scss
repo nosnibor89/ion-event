@@ -1,0 +1,42 @@
+summary-box {
+    border-radius: 5px;
+    color: white;
+    display: block;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    text-align: center; 
+    padding: 1rem 2rem;
+    
+    .icon {
+        font-size: 4rem;
+    }
+
+    span{
+        color: white;
+        display: block;
+        margin-top: .5rem; 
+
+        &:nth-child(2){
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        &:nth-child(3){
+            font-size: 2rem;
+        }
+
+    }
+
+    &[color=primary]{
+        background: color($colors, primary, base);
+    }
+
+    &[color=green]{
+        background: color($colors, green, base);
+    }
+    
+    &[color=blue]{
+        background: color($colors, blue, base);
+    }
+}

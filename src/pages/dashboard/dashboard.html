@@ -1,0 +1,87 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only color="secondarydark" (click)="goProfile()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+
+    <!-- Summary -->
+    <ion-row class="summary">
+      <ion-col>
+        <summary-box iconName="calendar" text="Tasks" total="20" color="primary"></summary-box>
+      </ion-col>
+      <ion-col>
+        <summary-box iconName="alert" text="Notes" total="10" color="blue"></summary-box>
+      </ion-col>
+      <ion-col>
+        <summary-box iconName="list" text="Checklist" total="10" color="green"></summary-box>
+      </ion-col>
+    </ion-row>
+
+    <!--Progress -->
+    <ion-row>
+      <ion-col>
+        <ion-card no-margin text-left class="task-progress">
+          <ion-card-header>
+            Tasks Progress
+          </ion-card-header>
+
+          <ion-row>
+            <ion-col>
+              <ion-card-content>
+                <strong>20</strong>
+                <span>All task</span>
+              </ion-card-content>
+            </ion-col>
+            <ion-col>
+              <ion-card-content>
+                <strong>4</strong>
+                <span>Completed task</span>
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- Chart -->
+    <ion-row>
+      <ion-col>
+        <ion-card no-margin text-center>
+          <ion-card-header>
+            Tasks by Calendar
+          </ion-card-header>
+
+          <ion-card-content >
+              <div style="display: block">
+                  <canvas baseChart
+                              [data]="itemsByLapse"
+                              [labels]="lapses"
+                              [chartType]="chartType"
+                              (chartHover)="chartHovered($event)"
+                              (chartClick)="chartClicked($event)"></canvas>
+                </div>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

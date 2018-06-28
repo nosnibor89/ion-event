@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular/umd';
+import Pages from '../pages';
 
 /**
  * Generated class for the TabsPage page.
@@ -8,18 +9,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+// @IonicPage()
+@IonicPage({
+  priority: 'high'
+})
 @Component({
   selector: 'page-tabs',
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
-  }
-
+  tab1Root =  Pages.TODOS_PAGE;
+  tab2Root =  Pages.NOTES_PAGE;
+  tab3Root =  Pages.DASHBOARD_PAGE;
+  tab4Root =  Pages.CALENDAR_PAGE;
+  tab5Root =  Pages.PROFILE_PAGE;
 }

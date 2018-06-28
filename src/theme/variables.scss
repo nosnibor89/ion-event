@@ -32,14 +32,32 @@ $app-direction: ltr;
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
+$text-color: #000;
+$primarygradient: linear-gradient(to bottom, #5f72d9 5%, #5f72d9 8%, #5f6dca 18%, #505eba 100%);
 
 $colors: (
-  primary:    #488aff,
+  primary:    #5764BC,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  light:      #BBBCBE,
+  dark:       #222,
+
+  gray: #F2F2F2,
+  graydark: #343434,
+  secondarydark: #585656,
+  blue: #3C81C0,
+  green: #2E848B,
 );
+
+// Override Ionic variables
+
+
+// Fonts
+// --------------------------------------------------
+$toolbar-ios-title-font-size: 1.5rem;
+$toolbar-ios-title-font-weight: 400;
+$toolbar-md-title-font-size: 1.5rem;
+$toolbar-md-title-font-weight: 400;
 
 
 // App iOS Variables

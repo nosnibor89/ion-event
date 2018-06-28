@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only color="secondarydark" (click)="goProfile()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Notes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-horizontal>
+  <ion-list>
+    <list-item *ngFor="let note of (notes$ | async)?.notes; trackBy: trackByItemId" [item]="note"></list-item>
+  </ion-list>
+</ion-content>
