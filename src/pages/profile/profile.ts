@@ -56,4 +56,8 @@ export class ProfilePage extends MainPage {
     this.store.dispatch(new ApplyFilter(tab));
   }
 
+  trackByItemId(index, item) {
+    return item ? item.id : undefined;
+  }
+
 }

@@ -23,9 +23,9 @@ import { MainPage } from '../../shared/main-page';
 export class DashboardPage extends MainPage{
 
   // Doughnut
-  public doughnutChartLabels: string[] = ['Month', 'Week', 'Today'];
-  public doughnutChartData: number[] = [350, 450, 100];
-  public doughnutChartType: string = 'doughnut';
+  public lapses: string[] = ['Month', 'Week', 'Today'];
+  public itemsByLapse: number[] = [350, 450, 100];
+  public chartType: string = 'doughnut';
   @Select(DashboardState.summary) summary$: Observable<any>;
 
   constructor(public navCtrl: NavController) {
