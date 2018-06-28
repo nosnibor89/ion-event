@@ -2,7 +2,7 @@
 import { State, Action, StateContext } from "@ngxs/store";
 
 import { ApiService } from "../../../services/api.service";
-import { fetchNotes, AddNote } from "./note.actions";
+import { fetchNotes, AddNote, removeNote } from "./note.actions";
 import { TodoItem } from "../../models/todo-item";
 
 export interface NoteStateModel {
@@ -17,7 +17,7 @@ export interface NoteStateModel {
     }
 })
 export class NoteState {
-    constructor(private apiService: ApiService ) { }
+    constructor(private apiService: ApiService) { }
 
 
     @Action(AddNote)
@@ -29,15 +29,26 @@ export class NoteState {
         // });
     }
 
-    @Action(fetchNotes)
-    async fetchTodos(ctx: StateContext<NoteStateModel>, action: fetchNotes) {
+    @Action(removeNote)
+    removeTodo(ctx: StateContext<NoteStateModel>, action: removeNote) {
+        const state = ctx.getState();
+        const newNotes = state.notes.filter( (item, index) => item.id !== action.note.id);
 
-        const todos = await this.apiService.fetchNotes()
-        .subscribe((notes: TodoItem[]) => {
-            ctx.patchState({
-                notes: [...notes],
-            });
+        ctx.patchState({
+            notes: newNotes,
         });
+    }
+
+
+    @Action(fetchNotes)
+    fetchTodos(ctx: StateContext<NoteStateModel>, action: fetchNotes) {
+
+        this.apiService.fetchNotes()
+            .subscribe((notes: TodoItem[]) => {
+                ctx.patchState({
+                    notes: [...notes],
+                });
+            });
     }
 }
 

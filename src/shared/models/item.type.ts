@@ -1,2 +1,7 @@
-export type ItemType = 'todo' | 'note';
+export type ItemtypeType = 'todo' | 'note';
+
+export const itemType = {
+    todo: 'todo',
+    note: 'note',
+};
 
