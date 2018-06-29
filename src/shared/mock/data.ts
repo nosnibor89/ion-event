@@ -10,7 +10,7 @@ export const Mocker = {
         for (let i = 0; i < qty; i++) {
             const current = {
                 title: faker.lorem.slug(),
-                note: faker.lorem.paragraph(),
+                note: faker.lorem.sentence(),
                 id: i,
                 done: faker.random.boolean(),
                 createdAt: faker.date.past(),
@@ -27,7 +27,7 @@ export const Mocker = {
         for (let i = 0; i < qty; i++) {
             const current = {
                 title: faker.lorem.slug(),
-                note: faker.lorem.paragraph(),
+                note: faker.lorem.sentence(),
                 id: i,
                 createdAt: faker.date.past(),
             }
