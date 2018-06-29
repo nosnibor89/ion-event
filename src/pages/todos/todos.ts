@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 import { TodoState } from '../../shared/store/todo/todo.state';
 import { MainPage } from '../../shared/main-page';
+import { InteractionService } from '../../services/interaction.service';
+import Pages from '../pages';
 
 
 /**
@@ -22,8 +24,12 @@ import { MainPage } from '../../shared/main-page';
 export class TodosPage extends MainPage {
   @Select(TodoState) todos$: Observable<any>;
 
-  constructor(public navCtrl: NavController, public store: Store) {
+  constructor(public navCtrl: NavController, public store: Store, private interactionService: InteractionService) {
     super(navCtrl, store);
+  }
+
+  addTodo() {
+    this.interactionService.presentModal(Pages.ADD_ITEM_PAGE, { itemType: 'todo' }, null);
   }
 
 }
