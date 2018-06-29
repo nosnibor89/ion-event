@@ -15,23 +15,32 @@
 // Custom Variables
 $app-border: .5px solid color($colors, gray, base);
 $app-border-dark: .5px solid #B6B5B8;
-
 ion-app {
     &.md {
         .content-md {
+            color: #686868;
+        }
+
+        h3, strong{
             color: color($colors, graydark);
         }
     }
     &.ios {
         .content-ios {
-            color:color($colors, graydark);
+            color:  #686868;
+        } 
+
+        h3, strong{
+            color: color($colors, graydark);
         }
-    }
-    span,
-    strong {
-        color: #686868;
+
     }
     .card {
         width: 100%;
+    }
+    .back-button,
+    .back-button-icon,
+    .back-button-text {
+        color: white;
     }
 }

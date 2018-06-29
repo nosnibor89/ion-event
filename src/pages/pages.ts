@@ -5,6 +5,7 @@
     DASHBOARD_PAGE: 'DashboardPage',
     CALENDAR_PAGE: 'CalendarPage',
     PROFILE_PAGE: 'ProfilePage',
+    DETAIL_PAGE: 'DetailPage',
 }
 
 export default Pages;

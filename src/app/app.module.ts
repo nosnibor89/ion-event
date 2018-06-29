@@ -11,6 +11,8 @@ import { TodoState } from '../shared/store/todo/todo.state';
 import { ApiService } from '../services/api.service';
 import { NoteState } from '../shared/store/note/note.state';
 import { DashboardState } from '../shared/store/dashboard/dashboard.state';
+import { InteractionService } from '../services/interaction.service';
+import { AppState } from '../shared/store/app.state';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { DashboardState } from '../shared/store/dashboard/dashboard.state';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     NgxsModule.forRoot([
+      AppState,
       TodoState,
       NoteState,
       DashboardState,
@@ -35,6 +38,7 @@ import { DashboardState } from '../shared/store/dashboard/dashboard.state';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiService,
+    InteractionService,
   ]
 })
 export class AppModule {}

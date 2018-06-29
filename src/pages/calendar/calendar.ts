@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import Pages from '../pages';
-import { MainPage } from '../../shared/main-page.interface';
+import { IonicPage, NavController } from 'ionic-angular';
+import { Store } from '@ngxs/store';
+
+import { MainPage } from '../../shared/main-page';
+
 
 /**
  * Generated class for the CalendarPage page.
@@ -15,17 +17,9 @@ import { MainPage } from '../../shared/main-page.interface';
   selector: 'page-calendar',
   templateUrl: 'calendar.html',
 })
-export class CalendarPage implements MainPage {
+export class CalendarPage extends MainPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public store: Store) {
+    super(navCtrl, store);
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendarPage');
-  }
-
-  goProfile(): void {
-    this.navCtrl.setRoot(Pages.PROFILE_PAGE);
-  }
-
 }

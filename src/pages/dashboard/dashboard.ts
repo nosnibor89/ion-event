@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 
-import { MainPage } from '../../shared/main-page.interface';
-import Pages from '../pages';
 import { DashboardState } from '../../shared/store/dashboard/dashboard.state';
+import { MainPage } from '../../shared/main-page';
 
 
 
@@ -21,7 +20,7 @@ import { DashboardState } from '../../shared/store/dashboard/dashboard.state';
   selector: 'page-dashboard',
   templateUrl: 'dashboard.html',
 })
-export class DashboardPage implements MainPage {
+export class DashboardPage extends MainPage{
 
   // Doughnut
   public lapses: string[] = ['Month', 'Week', 'Today'];
@@ -29,9 +28,9 @@ export class DashboardPage implements MainPage {
   public chartType: string = 'doughnut';
   @Select(DashboardState.summary) summary$: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public store: Store) {
+    super(navCtrl, store);
   }
-
 
   // events
   public chartClicked(e: any): void {
@@ -41,11 +40,4 @@ export class DashboardPage implements MainPage {
   public chartHovered(e: any): void {
     console.log(e);
   }
-
-  goProfile(): void {
-    this.navCtrl.setRoot(Pages.PROFILE_PAGE);
-  }
-
-
-
 }

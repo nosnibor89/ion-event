@@ -4,11 +4,9 @@ import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { ApplyFilter } from './profile.actions';
 import { TodoState, TodoStateModel } from '../todo/todo.state';
 import { NoteState, NoteStateModel } from '../note/note.state';
+import { itemType } from '../../models/item.type';
 
-export const profileFilters = {
-    todo: 'todo',
-    note: 'note',
-};
+export const profileFilters = itemType;
 
 interface ProfileStateModel {
     filter: string,

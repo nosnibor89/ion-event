@@ -14,6 +14,12 @@
 
 <ion-content padding-horizontal>
   <ion-list>
-    <list-item *ngFor="let note of (notes$ | async)?.notes; trackBy: trackByItemId" [item]="note"></list-item>
+    <list-item *ngFor="let note of (notes$ | async)?.notes;" [item]="note" (press)="goToDetail(note, 'note')"></list-item>
   </ion-list>
+
+  <ion-fab bottom right>
+      <button ion-fab mini (tap)="addTodo()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+  </ion-fab>
 </ion-content>

@@ -1,0 +1,16 @@
+page-detail {
+    .scroll-content{
+        background: color($colors, gray);
+    }
+
+    button > span {
+        color: white;
+    }
+
+    .detail-buttons{
+        position: fixed;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+    }
+}

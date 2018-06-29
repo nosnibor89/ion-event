@@ -2,10 +2,13 @@
 import { State, Action, StateContext } from "@ngxs/store";
 
 import { ApiService } from "../../../services/api.service";
-import { AddTodo, fetchTodos } from "./todo.actions";
+import { addTodo, fetchTodos, deleteTodo, toggleTodo } from "./todo.actions";
 import { TodoItem } from "../../models/todo-item";
+import { AppStateModel } from "../app.state";
+import { itemType, ItemtypeType } from "../../models/item.type";
+import { SelectItem } from "../app.actions";
 
-export interface TodoStateModel {
+export interface TodoStateModel extends AppStateModel {
     todos: TodoItem[],
 }
 
@@ -17,10 +20,11 @@ export interface TodoStateModel {
     }
 })
 export class TodoState {
+
     constructor(private apiService: ApiService) { }
 
-    @Action(AddTodo)
-    addTodo(ctx: StateContext<TodoStateModel>, action: AddTodo) {
+    @Action(addTodo)
+    addTodo(ctx: StateContext<TodoStateModel>, action: addTodo) {
         const state = ctx.getState();
 
         console.log(state);
@@ -28,6 +32,38 @@ export class TodoState {
         // ctx.patchState({
         //     todos: state.todos.concat(action.todo),
         // });
+    }
+
+    @Action(deleteTodo)
+    deleteTodo(ctx: StateContext<TodoStateModel>, action: deleteTodo) {
+        const state = ctx.getState();
+        const newTodos = state.todos.filter((item, index) => item.id !== action.todo.id);
+
+        ctx.patchState({
+            todos: newTodos,
+        });
+    }
+
+    @Action(toggleTodo)
+    toggleTodo(ctx: StateContext<TodoStateModel>, action: toggleTodo) {
+        const state = ctx.getState();
+
+        const updatedTodo: TodoItem = {
+            ...action.todo,
+            done: !action.todo.done,
+        }
+        const todoIndex = state.todos.findIndex(todo => todo.id === updatedTodo.id);
+        const newTodos = state.todos.slice();
+
+        newTodos[todoIndex] = updatedTodo;
+
+        ctx.patchState({
+            todos: newTodos,
+            selectedItem: updatedTodo,
+            selectedItemType: itemType.todo as ItemtypeType,
+        });
+
+        ctx.dispatch(new SelectItem(updatedTodo, itemType.todo as ItemtypeType));
     }
 
     @Action(fetchTodos)

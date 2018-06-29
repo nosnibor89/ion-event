@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ElementRef, AfterViewInit } from '@angular/core';
 
 import { TodoItem } from '../../models/todo-item';
 
@@ -13,7 +13,18 @@ import { TodoItem } from '../../models/todo-item';
   templateUrl: 'list-item.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListItemComponent {
+export class ListItemComponent implements AfterViewInit {
 
   @Input() item: TodoItem;
+  @Input() isTodo = false;
+
+  constructor(private elemRef: ElementRef){
+  }
+
+  ngAfterViewInit(): void {
+    // change the border color
+    if(this.item && this.item.done){
+      this.elemRef.nativeElement.classList.add('done');
+    }
+  }
 }

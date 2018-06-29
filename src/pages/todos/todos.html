@@ -14,6 +14,6 @@
 
 <ion-content padding-horizontal>
   <ion-list>
-    <list-item *ngFor="let todo of (todos$ | async)?.todos; trackBy: trackByItemId" [item]="todo"></list-item>
+    <list-item *ngFor="let todo of (todos$ | async)?.todos" [item]="todo" (press)="goToDetail(todo)"></list-item>
   </ion-list>
 </ion-content>

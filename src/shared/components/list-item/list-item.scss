@@ -1,5 +1,5 @@
 list-item {
-    border-left: 2px solid #B6F273;
+    border-left: 2px solid color($colors, primary);
     background-color: color($colors, gray);
     display: block;
     margin: 0 0 1rem 0;
@@ -7,6 +7,10 @@ list-item {
     overflow: hidden;
     overflow-wrap: break-word;
     padding: $content-padding calc(#{$content-padding}/2);
+
+    &.done{
+        border-left: 2px solid color($colors, lightgreen); 
+    }
 
     h3,h2 {
         font-size: 1.5rem;
