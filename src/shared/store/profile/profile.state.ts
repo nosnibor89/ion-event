@@ -2,8 +2,8 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 
 import { ApplyFilter } from './profile.actions';
-import { TodoState } from '../todo/todo.state';
-import { NoteState } from '../note/note.state';
+import { TodoState, TodoStateModel } from '../todo/todo.state';
+import { NoteState, NoteStateModel } from '../note/note.state';
 
 export const profileFilters = {
     todo: 'todo',
@@ -22,7 +22,7 @@ interface ProfileStateModel {
 })
 export class ProfileState {
 
-    @Selector([TodoState, NoteState]) static items(state: any, todoState, noteState) {
+    @Selector([TodoState, NoteState]) static items(state: any, todoState: TodoStateModel, noteState: NoteStateModel) {
         return state.filter === profileFilters.todo ?  todoState.todos : noteState.notes;
     }
 

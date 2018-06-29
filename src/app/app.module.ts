@@ -6,11 +6,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
-
 import { MyApp } from './app.component';
 import { TodoState } from '../shared/store/todo/todo.state';
 import { ApiService } from '../services/api.service';
 import { NoteState } from '../shared/store/note/note.state';
+import { DashboardState } from '../shared/store/dashboard/dashboard.state';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { NoteState } from '../shared/store/note/note.state';
     NgxsModule.forRoot([
       TodoState,
       NoteState,
+      DashboardState,
     ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],

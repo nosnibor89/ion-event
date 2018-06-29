@@ -1,4 +1,4 @@
-export class TodoItem {
+export interface TodoItem {
     title: string;
     note: string;
     date ?: string

@@ -24,13 +24,13 @@
     <!-- Summary -->
     <ion-row class="summary">
       <ion-col>
-        <summary-box iconName="calendar" text="Tasks" total="20" color="primary"></summary-box>
+        <summary-box iconName="calendar" text="Tasks" [total]="(summary$ | async)?.totalTodos" color="primary"></summary-box>
       </ion-col>
       <ion-col>
-        <summary-box iconName="alert" text="Notes" total="10" color="blue"></summary-box>
+        <summary-box iconName="alert" text="Notes" [total]="(summary$ | async)?.totalNotes" color="blue"></summary-box>
       </ion-col>
       <ion-col>
-        <summary-box iconName="list" text="Checklist" total="10" color="green"></summary-box>
+        <summary-box iconName="list" text="Checklist" [total]="(summary$ | async)?.completedTodos" color="green"></summary-box>
       </ion-col>
     </ion-row>
 
@@ -45,13 +45,13 @@
           <ion-row>
             <ion-col>
               <ion-card-content>
-                <strong>20</strong>
+                <strong>{{(summary$ | async)?.totalTodos}}</strong>
                 <span>All task</span>
               </ion-card-content>
             </ion-col>
             <ion-col>
               <ion-card-content>
-                <strong>4</strong>
+                <strong>{{(summary$ | async)?.completedTodos}}</strong>
                 <span>Completed task</span>
               </ion-card-content>
             </ion-col>

@@ -5,7 +5,7 @@ import { ApiService } from "../../../services/api.service";
 import { AddTodo, fetchTodos } from "./todo.actions";
 import { TodoItem } from "../../models/todo-item";
 
-interface TodoStateModel {
+export interface TodoStateModel {
     todos: TodoItem[],
 }
 
