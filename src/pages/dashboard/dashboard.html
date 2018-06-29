@@ -13,6 +13,12 @@
       </button>
     </ion-buttons>
     <ion-title>Dashboard</ion-title>
+
+    <ion-buttons end>
+        <button ion-button icon-only color="secondarydark" (click)="refresh()">
+          <ion-icon name="sync"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -70,7 +76,7 @@
           </ion-card-header>
 
           <ion-card-content >
-              <div style="display: block">
+              <div style="display: block" *ngIf="itemsByLapse[0] >= 1; else message">
                   <canvas baseChart
                               [data]="itemsByLapse"
                               [labels]="lapses"
@@ -78,6 +84,13 @@
                               (chartHover)="chartHovered($event)"
                               (chartClick)="chartClicked($event)"></canvas>
                 </div>
+
+                <ng-template #message>
+                    <p>
+                      No todos this year
+                    </p>
+                </ng-template>
+                
           </ion-card-content>
 
         </ion-card>

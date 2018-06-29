@@ -11,29 +11,25 @@ import { DateTime } from 'luxon';
 })
 export class DatelapsePipe implements PipeTransform {
   /**
-   * Takes a value and makes it lowercase.
+   * Transform datetime into lapse by comparing with current time
+   * @param value string A string representation of the date
    */
   transform(value: string, ...args) {
-
     const date = DateTime.fromJSDate(new Date(value));
-
-    console.log(date.toString())
-    console.log(DateTime.local().toString())
     const diff = DateTime.local().diff(date, ['minutes', 'hours', 'days']);
-    // const diff = date.diffNow(,);
-    // debugger
-    if(diff.minutes < 1){
+
+    if (diff.minutes < 1) {
       return 'Just now';
     }
 
-    if(diff.hours < 1){
-      return `${diff.minutes} minutes ago`;
+    if (diff.hours < 1) {
+      return `${diff.minutes.toFixed(0)} minutes ago`;
     }
 
-    if(diff.days < 1){
-      return `${diff.hours} hours ago`;
+    if (diff.days < 1) {
+      return `${diff.hours.toFixed(0)} hours ago`;
     }
 
-    return `${diff.days} days ago`;
+    return `${diff.days.toFixed(0)} days ago`;
   }
 }
