@@ -16,4 +16,11 @@
   <ion-list>
     <list-item *ngFor="let todo of (todos$ | async)?.todos" [item]="todo" (press)="goToDetail(todo)"></list-item>
   </ion-list>
+
+
+  <ion-fab bottom right>
+    <button ion-fab mini (tap)="addTodo()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

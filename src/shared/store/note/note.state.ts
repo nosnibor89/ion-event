@@ -21,8 +21,28 @@ export class NoteState {
 
 
     @Action(AddNote)
-    addTodo(ctx: StateContext<NoteStateModel>, action: AddNote) {
+    addNote(ctx: StateContext<NoteStateModel>, action: AddNote) {
         const state = ctx.getState();
+
+        const sortedNotes = state.notes.sort((a,b) => {
+            if(a.id > b.id) return 1;
+            if(a.id < b.id) return -1;
+            return 0;
+        });
+
+        const lastId = sortedNotes[sortedNotes.length -1].id;
+
+        const newNote: TodoItem = {
+            id: lastId + 1,
+            title: action.note.title,
+            note: action.note.note,
+            createdAt: new Date().toString(),
+        }
+
+        ctx.patchState({
+            notes: state.notes.concat(newNote),
+        });
+        
     }
 
     @Action(deleteNote)

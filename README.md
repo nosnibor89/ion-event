@@ -1,5 +1,5 @@
-# modus-create-todo
-Hybrid app for modus create todo/notes/tasks
+# ion-event
+Hybrid app for events/todo/notes/tasks
 
 ## How to use this project
 This project uses pretty much the same standard as Ionic CLI

@@ -6,7 +6,7 @@ export const TOGGLE_TODO = '[Todo] Toggle Todo';
 export const REMOVE_TODO = '[Todo] Remove Todo';
 export const FETCH_TODOS = '[Todo] Fetch Todos';
 
-export class addTodo {
+export class AddTodo {
     static readonly type = ADD_TODO;
     constructor(public todo: TodoItem) { }
 }

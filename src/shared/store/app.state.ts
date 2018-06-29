@@ -20,8 +20,6 @@ export class AppState {
 
     @Action(SelectItem)
     selectItem(ctx: StateContext<AppStateModel>, action: SelectItem) {
-        const state = ctx.getState();
-
         ctx.patchState({
             selectedItem: action.selectedItem,
             selectedItemType: action.itemType,

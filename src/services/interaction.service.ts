@@ -1,14 +1,15 @@
 import { Injectable } from "@angular/core";
-import { ActionSheetController, AlertController } from "ionic-angular";
+import { ActionSheetController, ModalController } from "ionic-angular";
 import { ItemtypeType } from "../shared/models/item.type";
 
 
 type DeleteActionSheetHandler = () => void | boolean;
+type DismissModalHandler = (type: any, role: string ) => void
 
 @Injectable()
 export class InteractionService {
 
-    constructor(private actionSheetCtrl: ActionSheetController, private alertCtrl: AlertController) { }
+    constructor(private actionSheetCtrl: ActionSheetController, private modalCtrl: ModalController) { }
 
 
     /**
@@ -43,6 +44,24 @@ export class InteractionService {
         });
 
         actionSheet.present();
+    }
+
+    /**
+     * 
+     * @param pageName string Name of the page to be lazy loaded
+     * @param data object Any data to be passed 
+     * @param dismissHandler Function Callback function to be executed onDidDismiss 
+     */
+    presentModal(pageName: string, data: any, dismissHandler: DismissModalHandler ){
+        const options = {
+            showBackdrop: true,
+            enableBackdropDismiss: true,
+        }
+        
+
+        let modal = this.modalCtrl.create(pageName, data, options);
+        modal.onDidDismiss(dismissHandler);
+        modal.present();
     }
 
 }

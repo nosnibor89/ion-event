@@ -6,6 +6,7 @@ import { Select, Store } from '@ngxs/store';
 import { NoteState } from '../../shared/store/note/note.state';
 import { MainPage } from '../../shared/main-page';
 import { InteractionService } from '../../services/interaction.service';
+import Pages from '../pages';
 
 /**
  * Generated class for the NotesPage page.
@@ -26,7 +27,7 @@ export class NotesPage extends MainPage {
     super(navCtrl, store);
   }
 
-  addTodo(){
-
+  addTodo() {
+    this.interactionService.presentModal(Pages.ADD_ITEM_PAGE, { itemType: 'note' }, null);
   }
 }
