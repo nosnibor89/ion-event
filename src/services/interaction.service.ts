@@ -1,38 +1,48 @@
 import { Injectable } from "@angular/core";
-import { ActionSheetController, ActionSheetOptions } from "ionic-angular";
+import { ActionSheetController, AlertController } from "ionic-angular";
 import { ItemtypeType } from "../shared/models/item.type";
-import { Store } from "@ngxs/store";
+
+
+type DeleteActionSheetHandler = () => void | boolean;
 
 @Injectable()
 export class InteractionService {
 
-    constructor(private actionSheetCtrl: ActionSheetController, private store: Store) { }
+    constructor(private actionSheetCtrl: ActionSheetController, private alertCtrl: AlertController) { }
 
 
-    presentActionSheet(itemType: ItemtypeType, removeHandler: Function, cancelHandler: Function) {
+    /**
+     * 
+     * @param itemType ItemtypeType Item to be deleted
+     * @param deleteHandler Callback function to be executed when deleted
+     * @param cancelHandler Callback function to be executed when canceled
+     */
+    presentDeleteActionSheet(itemType: ItemtypeType, deleteHandler: DeleteActionSheetHandler, cancelHandler: DeleteActionSheetHandler) {
+
         const actionSheet = this.actionSheetCtrl.create({
-            title: 'Delete this note',
+            title: `Delete this ${itemType} ?`,
             buttons: [
                 {
                     text: 'Delete',
                     role: 'destructive',
                     handler: () => {
-                        console.log('Destructive clicked');
-                        removeHandler();
+                        if(deleteHandler){
+                            deleteHandler();
+                        }
                     }
                 }, {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: () => {
-                        cancelHandler();
+                        if(cancelHandler){
+                            cancelHandler();
+                        }
                     }
                 }
             ]
         });
 
         actionSheet.present();
-
-        actionSheet.onDidDismiss((data) => {console.log(data)})
     }
 
 }

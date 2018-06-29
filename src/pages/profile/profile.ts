@@ -30,8 +30,8 @@ export class ProfilePage extends MainPage {
   scrollHeight: number;
   profileFilters = profileFilters
 
-  constructor(public navCtrl: NavController, private store: Store) {
-    super(navCtrl);
+  constructor(public navCtrl: NavController, public store: Store) {
+    super(navCtrl, store);
   }
 
   ionViewDidEnter() {
@@ -55,9 +55,4 @@ export class ProfilePage extends MainPage {
     this.selectedTab = tab;
     this.store.dispatch(new ApplyFilter(tab));
   }
-
-  trackByItemId(index, item) {
-    return item ? item.id : undefined;
-  }
-
 }

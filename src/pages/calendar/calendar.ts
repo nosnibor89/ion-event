@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import { Store } from '@ngxs/store';
+
 import { MainPage } from '../../shared/main-page';
+
 
 /**
  * Generated class for the CalendarPage page.
@@ -16,7 +19,7 @@ import { MainPage } from '../../shared/main-page';
 })
 export class CalendarPage extends MainPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    super(navCtrl);
+  constructor(public navCtrl: NavController, public store: Store) {
+    super(navCtrl, store);
   }
 }

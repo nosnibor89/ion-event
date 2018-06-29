@@ -10,7 +10,7 @@ export class AddNote {
     constructor(public note: TodoItem) { }
 }
 
-export class removeNote {
+export class deleteNote {
     static readonly type = REMOVE_NOTE;
     constructor(public note: TodoItem) { }
 }

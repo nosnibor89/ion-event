@@ -18,29 +18,22 @@ $app-border-dark: .5px solid #B6B5B8;
 ion-app {
     &.md {
         .content-md {
-            color: #686868 //color($colors, graydark);
+            color: #686868;
         }
 
         h3, strong{
             color: color($colors, graydark);
         }
-        // span,
-        // strong {
-        //     color: #686868;
-        // }
     }
     &.ios {
         .content-ios {
-            color:  #686868 // color($colors, graydark);
+            color:  #686868;
         } 
 
         h3, strong{
             color: color($colors, graydark);
         }
-        // span,
-        // strong {
-        //     color: #686868;
-        // }
+
     }
     .card {
         width: 100%;

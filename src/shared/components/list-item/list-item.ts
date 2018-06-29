@@ -27,5 +27,4 @@ export class ListItemComponent implements AfterViewInit {
       this.elemRef.nativeElement.classList.add('done');
     }
   }
-
 }

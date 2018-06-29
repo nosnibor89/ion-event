@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 
 import { NoteState } from '../../shared/store/note/note.state';
 import { MainPage } from '../../shared/main-page';
+import { InteractionService } from '../../services/interaction.service';
 
 /**
  * Generated class for the NotesPage page.
@@ -21,7 +22,11 @@ import { MainPage } from '../../shared/main-page';
 export class NotesPage extends MainPage {
   @Select(NoteState) notes$: Observable<any>;
 
-  constructor(public navCtrl: NavController) {
-    super(navCtrl);
+  constructor(public navCtrl: NavController, public store: Store, private interactionService: InteractionService) {
+    super(navCtrl, store);
+  }
+
+  addTodo(){
+
   }
 }

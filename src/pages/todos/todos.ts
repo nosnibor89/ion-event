@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 import { TodoState } from '../../shared/store/todo/todo.state';
@@ -22,8 +22,8 @@ import { MainPage } from '../../shared/main-page';
 export class TodosPage extends MainPage {
   @Select(TodoState) todos$: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    super(navCtrl);
+  constructor(public navCtrl: NavController, public store: Store) {
+    super(navCtrl, store);
   }
 
 }

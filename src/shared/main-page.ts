@@ -2,6 +2,9 @@ import { NavController } from "ionic-angular";
 
 import { TodoItem } from "./models/todo-item";
 import Pages from "../pages/pages";
+import { Store } from "@ngxs/store";
+import { SelectItem } from "./store/app.actions";
+import { ItemtypeType } from "./models/item.type";
 
 /**
  * @author Robinson Marquez
@@ -9,17 +12,28 @@ import Pages from "../pages/pages";
  */
 export class MainPage {
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, public store: Store) {
     }
 
-    goSettings(): void {
+    goProfile(): void {
         this.navCtrl.setRoot(Pages.PROFILE_PAGE);
     }
 
-    goToDetail(item: TodoItem, itemType = 'todo') {
-        this.navCtrl.push(Pages.DETAIL_PAGE, {
-            item,
-            itemType,
-        });
+    goToDetail(item: TodoItem, itemType: ItemtypeType = 'todo') {
+
+        const subscription = this.store.dispatch(new SelectItem(item, itemType))
+            .subscribe(() => {
+                this.navCtrl.push(Pages.DETAIL_PAGE);
+            })
+
+
+        setTimeout(() => {
+            subscription.unsubscribe();
+        }, 1000);
+    }
+
+    trackByItemId(index, item) {
+        console.log(item);
+        return item ? item.id : undefined;
     }
 }

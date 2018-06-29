@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 
 import { DashboardState } from '../../shared/store/dashboard/dashboard.state';
 import { MainPage } from '../../shared/main-page';
@@ -28,8 +28,8 @@ export class DashboardPage extends MainPage{
   public chartType: string = 'doughnut';
   @Select(DashboardState.summary) summary$: Observable<any>;
 
-  constructor(public navCtrl: NavController) {
-    super(navCtrl);
+  constructor(public navCtrl: NavController, public store: Store) {
+    super(navCtrl, store);
   }
 
   // events

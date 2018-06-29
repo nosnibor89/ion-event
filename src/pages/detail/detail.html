@@ -15,49 +15,6 @@
 
 <ion-content scroll="false" padding>
 
-  <!-- 
-  <ion-grid>
-    <ion-row >
-      <ion-col align-self-start>
-        <ion-card no-margin padding>
-          <ion-card-header>
-            {{item?.title}}
-          </ion-card-header>
-
-          <ion-card-content>
-            <p>{{item?.note}}</p>
-          </ion-card-content>
-
-          <ion-row>
-            <ion-col center text-right>
-              <ion-note>
-                11h ago
-              </ion-note>
-            </ion-col>
-          </ion-row>
-        </ion-card>
-      </ion-col>
-
-   
-
-      <ion-col align-self-end>
-        <button ion-button full round color="green" icon-start>
-          <ion-icon name="contact"></ion-icon>
-          Mark as done
-        </button>
-        <button ion-button full color="danger">
-          <ion-icon name="contact"></ion-icon>
-          Delete
-        </button>
-      </ion-col>
-
-    </ion-row>
-
-
-  </ion-grid>
-
- -->
-
   <ion-card no-margin padding>
     <ion-card-header>
       {{item?.title}}
@@ -77,11 +34,11 @@
   </ion-card>
 
   <div class="detail-buttons">
-    <button *ngIf="itemType === 'todo'" ion-button full round color="secondary" icon-start (click)="toogleItem()">
+    <button *ngIf="itemType === 'todo'" ion-button full round [color]="item?.done ? 'primary': 'secondary'" icon-start (click)="toogleItem()">
       <ion-icon name="contact"></ion-icon>
-      Mark as done
+      {{ item?.done ? 'Mark as undone' : 'Mark as done'}}
     </button>
-    <button ion-button full round color="danger" icon-start (click)="tryToRemoveItem()">
+    <button ion-button full round color="danger" icon-start (click)="tryToDeleteItem()">
       <ion-icon name="contact"></ion-icon>
       Delete
     </button>
