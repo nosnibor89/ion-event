@@ -74,7 +74,6 @@ export class DetailPage {
   }
 
   tryToDeleteItem() {
-    // TODO
     this.interactionService.presentDeleteActionSheet(
       this.itemType,
       () => { this.deleteItem() },

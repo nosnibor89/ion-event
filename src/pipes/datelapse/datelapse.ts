@@ -23,13 +23,13 @@ export class DatelapsePipe implements PipeTransform {
     }
 
     if (diff.hours < 1) {
-      return `${diff.minutes.toFixed(0)} minutes ago`;
+      return `${diff.minutes|0} minutes ago`;
     }
 
     if (diff.days < 1) {
-      return `${diff.hours.toFixed(0)} hours ago`;
+      return `${diff.hours|0} hours ago`;
     }
 
-    return `${diff.days.toFixed(0)} days ago`;
+    return `${diff.days|0} days ago`;
   }
 }

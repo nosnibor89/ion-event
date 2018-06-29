@@ -39,7 +39,7 @@ export class DashboardPage extends MainPage {
 
   ionViewDidEnter() {
     this.subscription = this.store.select(state => state.todo).subscribe((state) => {
-      this.getLapses(state.todos);
+      this.setLapses(state.todos);
     });
   }
 
@@ -49,32 +49,27 @@ export class DashboardPage extends MainPage {
     }
   }
 
-  getLapses(todos: TodoItem[]) {
+  setLapses(todos: TodoItem[]) {
     const now = DateTime.local();
     const currentYear = now.get('year');
-    const todosThisMonth = todos.filter(todo => DateTime.fromJSDate(new Date(todo.createdAt)).get('year') === currentYear)
+    const todosCurrentYear = todos.filter(todo => DateTime.fromJSDate(new Date(todo.createdAt)).get('year') === currentYear)
 
     let byToday = 0
     let byMonth = 0
     let byYear = 0;
 
-    for (const todo of todosThisMonth) {
+    for (const todo of todosCurrentYear) {
       const date = DateTime.fromJSDate(new Date(todo.createdAt));
 
-      if (date.year === now.year) {
-        byYear++
-      }
+      // Get total of todos by lapse
+      if (date.year === now.year) byYear++;
 
-      if (date.year === now.year && date.month === now.month) {
-        byMonth++
-      }
+      if (date.year === now.year && date.month === now.month) byMonth++;
 
-      if (date.year === now.year && date.month === now.month && date.day === now.day) {
-        byToday++
-      }
+      if (date.year === now.year && date.month === now.month && date.day === now.day)  byToday++;
     }
 
-    this.itemsByLapse = [byYear, byMonth, byToday]
+    this.itemsByLapse = [byYear, byMonth, byToday];
   }
 
   // events
