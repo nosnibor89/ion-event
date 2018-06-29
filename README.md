@@ -1,5 +1,6 @@
 # ion-event
 Hybrid app for events/todo/notes/tasks
+Based on: https://market.ionicframework.com/themes/todo-app-theme#description
 
 ## How to use this project
 This project uses pretty much the same standard as Ionic CLI
