@@ -48,6 +48,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.10",
     "@types/luxon": "^1.2.0",
+    "hoek": "^4.2.1",
     "typescript": "^2.7.2"
   },
   "description": "An Ionic project",
